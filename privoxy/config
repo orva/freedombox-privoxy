@@ -128,7 +128,7 @@
 #          If set, this option should be the first option in the config
 #          file, because it is used while the config file is being read.
 #
-user-manual /usr/share/doc/privoxy/user-manual
+user-manual /usr/local/share/doc/privoxy/user-manual
 #
 #
 #  1.2. trust-info-url
@@ -265,7 +265,7 @@ user-manual /usr/share/doc/privoxy/user-manual
 #
 #      No trailing "/", please.
 #
-confdir /etc/privoxy
+confdir /usr/local/etc/privoxy
 #
 #
 #  2.2. templdir
@@ -789,7 +789,7 @@ logfile logfile
 ## point anyway, I've chosen option 3, which simplifies setting up
 ## Privoxy. -JV
 
-listen-address  :8118
+listen-address  127.0.0.1:8118
 
 #
 #

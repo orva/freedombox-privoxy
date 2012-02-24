@@ -1,9 +1,9 @@
-INSTALL_DIR=/etc/privoxy
+INSTALL_DIR=/usr/local/etc/privoxy
 VERSION=`cat VERSION`
 PACKAGE_NAME=freedombox-privoxy
 DEBDIR=`ls -d Debian/privoxy*| xargs | sed "s/ .*//"`
 
-all: privoxy/easyprivacy.action privoxy/easylist.action privoxy/https_everywhere.action changelog
+all: privoxy/easyprivacy.action privoxy/easylist.action privoxy/https_everywhere.action 
 
 easyprivacy.txt:
 	@wget https://easylist-downloads.adblockplus.org/easyprivacy.txt
@@ -45,7 +45,6 @@ debian: privoxy/easyprivacy.action privoxy/https_everywhere.action privoxy/easyl
 install: all
 	mkdir -p $(INSTALL_DIR)
 	cd privoxy; cp config default.filter match-all.action default.action https_everywhere.action easyprivacy.action easylist.action $(INSTALL_DIR)
-	/etc/init.d/privoxy restart
 
 clean:
 	@rm -rf  vendor/https-everywhere 1000_config.dpatch Debian/privoxy* Debian/freedombox-privoxy* vendor/git2changelog
